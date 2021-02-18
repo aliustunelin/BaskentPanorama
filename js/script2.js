@@ -1,6 +1,6 @@
 const container = document.querySelector('#container');
 
-const panorama = new PANOLENS.ImagePanorama( '../img/atina.jpg' );
+const panorama = new PANOLENS.ImagePanorama( '../img/istanbul1.jpg' );
 const panorama2 = new PANOLENS.ImagePanorama( '../img/london.jpg' );
 
 
