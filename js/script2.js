@@ -1,3 +1,5 @@
+//https://codepen.io/alistnel/pen/rNWwNed?editors=1010
+
 const container = document.querySelector('#container');
 
 const panorama = new PANOLENS.ImagePanorama( '../img/istanbul1.jpg' );
