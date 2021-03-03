@@ -13,24 +13,24 @@ var infospotPositions = [
 
 container = document.querySelector( '#container' );
 
-panorama = new PANOLENS.ImagePanorama( '../img/atina.jpg' );
+panorama = new PANOLENS.ImagePanorama( '../img/sakarya.jpg' );
 panorama.addEventListener( 'enter-fade-start', function(){
   viewer.tweenControlCenter( lookAtPositions[0], 0 );
 } );
 
-panorama2 = new PANOLENS.ImagePanorama( '../img/london.jpg' );
+panorama2 = new PANOLENS.ImagePanorama( '../img/kentMeydani.jpg' );
 panorama2.addEventListener( 'enter', function(){
   viewer.tweenControlCenter( lookAtPositions[1], 0 );
 } );
 
 
-panorama3 = new PANOLENS.ImagePanorama( '../img/newyork.jpg' );
+panorama3 = new PANOLENS.ImagePanorama( '../img/maviDurak.jpg' );
 panorama3.addEventListener( 'enter', function(){
   viewer.tweenControlCenter( lookAtPositions[1], 0 );
 } );
 
 
-panorama4 = new PANOLENS.ImagePanorama( '../img/istanbul1.jpg' );
+panorama4 = new PANOLENS.ImagePanorama( '../img/kampus.jpg' );
 panorama4.addEventListener( 'enter', function(){
   viewer.tweenControlCenter( lookAtPositions[0], 0 );
 } );
@@ -42,21 +42,21 @@ panorama4.link( panorama, infospotPositions[1] );
 
 infospot = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
 infospot.position.set( 0, 0, -5000 );
-infospot.addHoverText('Atina!', 40);
+infospot.addHoverText('Serdivan Belediyesi', 40);
 
 infospot2 = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
 infospot2.position.set( 0, 0, -5000 );
-infospot2.addHoverText('Londra!', 40);
+infospot2.addHoverText('Kent Meydanı', 40);
 
 
 infospot3 = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
 infospot3.position.set( 0, 0, -5000 );
-infospot3.addHoverText('New York!', 40);
+infospot3.addHoverText('Mavi Durak', 40);
 
 
 infospot4 = new PANOLENS.Infospot( 350, PANOLENS.DataImage.Info );
 infospot4.position.set( 0, 0, -5000 );
-infospot4.addHoverText('İstanbul!', 40);
+infospot4.addHoverText('Kampüs Kapı', 40);
 
 
 panorama.add( infospot );
