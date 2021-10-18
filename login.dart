@@ -1,4 +1,4 @@
-//ali
+//musa
 
 import 'package:dhbt_okulu/constants/color.dart';
 import 'package:dhbt_okulu/screen/register.dart';
@@ -29,61 +29,63 @@ class _LoginState extends State<Login> {
         ),
         shadowColor: FixedColor().color1,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Text(
-              "Hoşgeldiniz!",
-              style: TextStyle(fontSize: 30),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                "Hoşgeldiniz!",
+                style: TextStyle(fontSize: 30),
+              ),
             ),
-          ),
-          LoginTexFormFiel(labelTextnum: 2,),
-          LoginTexFormFiel(labelTextnum: 4,),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15),
-            child: Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => const Navbar()));
-                },
-                child: const Text("Giriş Yap", style: TextStyle(fontSize: 17)),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50)),
-                  primary: FixedColor().color3,
-                  fixedSize: Size(MediaQuery.of(context).size.width * 0.9,
-                      MediaQuery.of(context).size.height * 0.055),
+            LoginTexFormFiel(labelTextnum: 2,),
+            LoginTexFormFiel(labelTextnum: 4,),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              child: Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => const Navbar()));
+                  },
+                  child: const Text("Giriş Yap", style: TextStyle(fontSize: 17)),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50)),
+                    primary: FixedColor().color3,
+                    fixedSize: Size(MediaQuery.of(context).size.width * 0.9,
+                        MediaQuery.of(context).size.height * 0.055),
+                  ),
                 ),
               ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Hesabın yok mu?",
-                style: TextStyle(color: FixedColor().color2),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => const Register()));
-                },
-                child: Text(
-                  "Kayıt Ol",
-                  style: TextStyle(color: FixedColor().color3),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Hesabın yok mu?",
+                  style: TextStyle(color: FixedColor().color2),
                 ),
-              )
-            ],
-          )
-        ],
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => const Register()));
+                  },
+                  child: Text(
+                    "Kayıt Ol",
+                    style: TextStyle(color: FixedColor().color3),
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
