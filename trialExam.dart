@@ -1,4 +1,4 @@
-//musa
+//ali
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -53,11 +53,13 @@ class _TrialExamQuesState extends State<TrialExamQues> {
                   context,
                   MaterialPageRoute(
                       builder: (BuildContext context) => const ExamResult()));
+              print("--------------->>>sınav süresi bittiği anda veriler:${choiceNotify.value.choiceMap}");              
               choiceNotify.clearChoice();
             }
           });
         });
       } else {
+        
         _timer.cancel();
       }
     });
@@ -72,12 +74,22 @@ class _TrialExamQuesState extends State<TrialExamQues> {
     super.dispose();
   }
 
+  //////-------------> sayfa yüklenince daha önceden işareyler varsa sil
+  @override
+        void initState() {
+          super.initState();
+          choiceNotify.clearChoice();
+        }
+
+
   @override
   Widget build(BuildContext context) {
     CollectionReference examRef = _firestore
         .collection("deneme")
         .doc(widget.whichTrialExam)
         .collection("sorular");
+
+        
 
     return Scaffold(
       appBar: AppBar(
@@ -88,8 +100,6 @@ class _TrialExamQuesState extends State<TrialExamQues> {
         actions: [
           ElevatedButton(
             onPressed: () {
-              print(
-                  "trialExamQues'e gelen deneme sınavı:${widget.whichTrialExam}");
               if (!isStart) {
                 _start();
               } else {
@@ -99,6 +109,7 @@ class _TrialExamQuesState extends State<TrialExamQues> {
                     context,
                     MaterialPageRoute(
                         builder: (BuildContext context) => const ExamResult()));
+                        print("--------------->>>sınavı bitire tıkladığında giden veriler:${choiceNotify.value.choiceMap}");
                 choiceNotify.clearChoice();
               }
             },
@@ -138,7 +149,7 @@ class _TrialExamQuesState extends State<TrialExamQues> {
                                       color: FixedColor().color1),
                                 )),
                                 color: FixedColor().color3,
-                                height: MediaQuery.of(context).size.height * 0.08,
+                                height: MediaQuery.of(context).size.height * 0.099,
                                 width: MediaQuery.of(context).size.width,
                               ),
                       Container(
@@ -161,7 +172,8 @@ class _TrialExamQuesState extends State<TrialExamQues> {
                                     choicetext2: examSnapList[index]['b'].toString(),
                                     choicetext3: examSnapList[index]['c'].toString(),
                                     choicetext4: examSnapList[index]['d'].toString(),
-                                    choicetext5: "Seçimi Boş Bırakmak İstiyorum",
+                                    choicetext5: examSnapList[index]['e'].toString(),
+                                    choicetext6: "Seçimi Boş Bırakmak İstiyorum",
                                   ),                                    
                               ],
                             );
@@ -173,11 +185,6 @@ class _TrialExamQuesState extends State<TrialExamQues> {
                 );
               },
             ),
-            // Container(
-            //   color: Colors.red,
-            //   width: MediaQuery.of(context).size.width,
-            //   height: MediaQuery.of(context).size.height,
-            // )
           ],
         ),
       ),
